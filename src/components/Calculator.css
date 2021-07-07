@@ -4,13 +4,15 @@
     // width:100%;
     // max-width: 30rem; */
   margin: 0 auto;
+  height: 100vh;
 }
 .display {
   width: 100%;
-  height: calc(100vh - 80vh);
+  height:100%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  
 }
 .ans {
   text-align: left;
@@ -27,14 +29,14 @@
   color: #fff;
   text-align: right;
   border: none;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   padding-right: 3rem;
 }
 
 .ButtonContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  height: 79.6vh;
+  height:80vh;
   grid-template-rows: auto;
 }
 .btn {
@@ -43,6 +45,8 @@
   outline: 1px solid #000;
   font-size: 3rem;
   font-weight: 500;
+  height: 100%;
+  width: 100%;
 }
 
 .aret {

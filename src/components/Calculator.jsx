@@ -1,52 +1,54 @@
-import React,{useState} from 'react'
-import ButtonContainer from './ButtonContainer';
+import React, { useState } from "react";
+import ButtonContainer from "./ButtonContainer";
 import "./Calculator.css";
-import * as Mathjs from "mathjs";
+
+// context
+import CalContext from "./contextProvider";
 
 function Calculator() {
-    const [calcInput,setCalcInput] = useState("");
-    // const [aritOp, setArithOp] =useState("");
-    const [ans,setAns] = useState("");
+  const [displayValue, setDisplayValue] = useState("");
+  const [opration, setOpration] = useState("");
+  const [first, setFirst] = useState("");
+  const clearDisplay = () => {
+    setDisplayValue("");
+  };
+  let op = ["/", "%", "*", "-", "+"];
 
-    const clearDisplay = () =>{
-        setCalcInput("");
-        setAns("")
+  const plusMinus = () => {
+    if (displayValue > 0) {
+      setDisplayValue("-" + displayValue);
+    } else {
+      setDisplayValue(displayValue * -1);
     }
-   
-    const clickHandler = (dis) =>{
-        setCalcInput(calcInput.concat(dis));
-        
-    }
+  };
 
-    const clearLast = () =>{
-        // setCalcInput(calcInput.slice(0,-1))
-      if(calcInput > 0){
-        setCalcInput( "-" + calcInput);
-      }
-      else{
-        setCalcInput(calcInput * -1);
-      }
-        
-      
-        
-    }
+  const realValue = (val) => {
+    setDisplayValue([...displayValue, val].join(""));
+  };
 
-    const evol = () =>{
-        setAns(Mathjs.evaluate(calcInput));
-      
-    }
-    
-    return (
-        <article className="calContainer">
-        
-               <form className="display">
-                   <input type="text" className="ans" name="result" value={ans}  />
-                   <input type="text" className="val" name="inputs" value={calcInput}/>
-               </form>
-           
-            <ButtonContainer clickButton={clickHandler}  clrDis={clearDisplay} evol={evol} clrLast={clearLast}/>
-        </article>
-    )
+  const oprandClick = (val) => {};
+
+  const answer = (val) => {
+    setDisplayValue(eval(displayValue));
+  };
+  return (
+    <CalContext.Provider
+      value={{ clearDisplay, plusMinus, realValue, answer, oprandClick }}
+    >
+      <article className="calContainer">
+        <div className="display">
+          <input
+            type="text"
+            className="val"
+            name="inputs"
+            value={displayValue}
+            readOnly
+          />
+          <ButtonContainer />
+        </div>
+      </article>
+    </CalContext.Provider>
+  );
 }
 
-export default Calculator
+export default Calculator;
