@@ -1,0 +1,15 @@
+.btn{
+    font-size: 3rem;
+    border: 0.5px solid rgba(20, 20, 20, 0.1);
+    outline: none;
+    height:100%;
+    width:100%;
+    cursor: pointer;
+    color: rgba(206, 93, 58, 0.9);
+    transition: all 0.3s;
+    &:hover{
+    color:  #fff;
+    background-color:rgba(206, 93, 58, .9);
+
+    }
+}

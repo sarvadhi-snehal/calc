@@ -1,0 +1,12 @@
+.App{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction:column;
+  height: 100vh;
+  width: 50vw;
+  min-width:25rem;
+  
+  font-family: 'Otomanopee One';
+  background-color: rgba(255,255,255,0.5);
+}
