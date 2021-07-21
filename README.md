@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with npm init @vitejs/app
 
 This project was bootstrapped with [@vitjs/app]
 ## Available Scripts
